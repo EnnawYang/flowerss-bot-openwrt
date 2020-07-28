@@ -15,7 +15,7 @@ make -j1 V=s
 ```  
 
 程序位置：`/root/flowerss-bot/flowerss-bot`  
-配置文件：`/root/flowerss-bot/config.yml`
+配置文件：`/root/flowerss-bot/config.yml`  
 目录下的`config.yml.sample`为配置模版
 
 # 原作者以及使用方法  
