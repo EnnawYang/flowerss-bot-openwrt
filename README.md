@@ -14,8 +14,8 @@ choose Network -> Telegram Bot -> flowerss-bot
 make -j1 V=s  
 ```  
 
-程序位置：`/root/flowerss-bot/flowerss-bot`  
-配置文件：`/root/flowerss-bot/config.yml`  
+程序位置：`/usr/bin/flowerss-bot`  
+配置文件：`/home/flowerss-bot/config.yml`  
 目录下的`config.yml.sample`为配置模版  
 
 type `flowerss-bot --help` to see how to get started.  
