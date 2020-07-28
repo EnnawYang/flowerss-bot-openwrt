@@ -7,5 +7,5 @@ A telegram bot for rss reader for openwrt .
 怎么使用请参考原作者说明  
 
 # 原作者以及使用方法  
-https://github.com/indes/flowerss-bot
+https://github.com/indes/flowerss-bot  
 https://flowerss-bot.now.sh/
