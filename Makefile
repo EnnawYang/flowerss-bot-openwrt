@@ -1,12 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=flowerss-bot
-PKG_VERSION:=v0.7.1
+PKG_VERSION:=2020-07-18
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/indes/flowerss-bot.git
-PKG_SOURCE_VERSION:=b29f417adf3f58bf862c76b5a2e9639e176d8277
+PKG_SOURCE_VERSION:=718fd267885fd7cee46dd9adcb6792d3d42b65d6
 
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
 PKG_SOURCE:=$(PKG_SOURCE_SUBDIR)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
@@ -18,7 +18,8 @@ PKG_USE_MIPS16:=0
 
 GO_PKG:=github.com/indes/flowerss-bot
 GO_PKG_LDFLAGS_X:= \
-	$(GO_PKG)/config.commit=`git rev-parse --short HEAD`
+	$(GO_PKG)/config.commit=$(PKG_SOURCE_VERSION) \
+	$(GO_PKG)/config.date=$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
