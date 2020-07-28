@@ -51,9 +51,9 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
-	$(INSTALL_DIR) $(1)/root
-	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot $(1)/root/flowerss-bot
-	$(CP) ./files/* $(1)/root/flowerss-bot
+	$(INSTALL_DIR) $(1)/root/flowerss-bot
+	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot $(1)/root/flowerss-bot/flowerss-bot
+	$(CP) ./files/* $(1)/root/flowerss-bot/
 endef
 $(eval $(call GoBinPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)))
