@@ -53,7 +53,9 @@ endef
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/root/flowerss-bot
 	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot $(1)/root/flowerss-bot/flowerss-bot
-	$(CP) ./files/* $(1)/root/flowerss-bot/
+	$(CP) ./files/config.yml.sample $(1)/root/flowerss-bot/config.yml.sample
+	$(INSTALL_DIR) $(1)/lib/upgrade/keep.d
+	$(CP) ./files/flowerss-bot $(1)/lib/upgrade/keep.d/flowerss-bot
 endef
 $(eval $(call GoBinPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)))
