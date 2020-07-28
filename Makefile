@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=flowerss-bot
 PKG_VERSION:=2020-07-18
-PKG_RELEASE:=1
+PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/indes/flowerss-bot.git
@@ -49,12 +49,15 @@ define Build/Compile
 	$(eval GO_PKG_BUILD_PKG:=$(GO_PKG))
 	$(call GoPackage/Build/Configure)
 	$(call GoPackage/Build/Compile)
+	$(STAGING_DIR_HOST)/bin/upx --lzma --best $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot
+	chmod +wx $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot
 endef
 
 define Package/$(PKG_NAME)/install
-	$(INSTALL_DIR) $(1)/root/flowerss-bot
-	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot $(1)/root/flowerss-bot/flowerss-bot
-	$(CP) ./files/config.yml.sample $(1)/root/flowerss-bot/config.yml.sample
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/flowerss-bot $(1)/usr/bin/flowerss-bot
+	$(INSTALL_DIR) $(1)/home/flowerss-bot
+	$(CP) ./files/config.yml.sample $(1)/home/flowerss-bot/config.yml.sample
 	$(INSTALL_DIR) $(1)/lib/upgrade/keep.d
 	$(CP) ./files/flowerss-bot $(1)/lib/upgrade/keep.d/flowerss-bot
 endef
