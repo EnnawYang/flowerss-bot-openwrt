@@ -19,3 +19,7 @@ telegram:
 
 sqlite:
   path: /home/flowerss-bot/data.db
+
+allowed_users:
+ - 123
+ - 456
